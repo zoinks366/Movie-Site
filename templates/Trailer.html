@@ -1,0 +1,22 @@
+{% extends 'MoviePage.html' %}
+{% block movieBlock %}
+<head>
+    <title>{{ movie.title }} - Trailers</title>
+</head>
+
+<section class="trailers">
+    {% if trailers %}
+        <div class="video-container">
+            {% for trailer in trailers %}
+                <div class="video">
+                    <iframe width="560" height="315" 
+                        src="https://www.youtube.com/embed/{{ trailer['key'] }}" 
+                        frameborder="0" allowfullscreen>
+                    </iframe>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</section>
+
+{% endblock %}

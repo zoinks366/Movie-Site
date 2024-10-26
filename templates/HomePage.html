@@ -1,0 +1,88 @@
+{% extends 'Base.html' %}
+
+{% block mainBlock %}
+
+<!-- Wep page title -->
+<head>
+    <title> Home Page </title>
+</head>
+
+<body>
+
+<!--#region Most Popular -->
+
+<div class="selection"> Most Popular </div>
+<div class="movie-slider-container" id="slider1">
+    <!-- When user clicks on arrow calls a JavaScript file 
+    that "slides" the movie posters to the side -->
+    <button class="slider-btn left-btn" onclick="slideLeft('slider1')">←</button>
+    <div class="movie-slider">
+        <div class="movie-wrapper" id="movieWrapper1">
+            <!-- When page loaded python file sent data from an API which 
+            was in the form of some JSON names most_popular. Using this json 
+            you can exrapolate the movie posters and movie id's-->
+            <!-- This code repeats for all movies stored in the JSON data -->
+            {% for movie in most_popular %}
+                <div class="movie">
+                    <a href="{{ url_for('reviews', movie_id=movie['id']) }}">
+                        <!-- Using the API inbuilt image system using only a 
+                        single line of code you can access 1000's of images -->
+                        <img src="https://image.tmdb.org/t/p/w500/{{ movie['poster_path'] }}" alt="{{ movie['title'] }}">
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <button class="slider-btn right-btn" onclick="slideRight('slider1')">→</button>
+</div>
+
+<!--#endregion -->
+
+<!--#region Highest Grossing -->
+
+<div class="selection"> Highest Grossing </div>
+<div class="movie-slider-container" id="slider2">
+    <button class="slider-btn left-btn" onclick="slideLeft('slider2')">←</button>
+    <div class="movie-slider">
+        <div class="movie-wrapper" id="movieWrapper2">
+            {% for movie in highest_grossing %}
+                <div class="movie">
+                    <a href="{{ url_for('reviews', movie_id=movie['id'])  }}">
+                        <img src="https://image.tmdb.org/t/p/w500/{{ movie['poster_path'] }}" alt="{{ movie['title'] }}">
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <button class="slider-btn right-btn" onclick="slideRight('slider2')">→</button>
+</div>
+
+<!--#endregion -->
+
+<!--#region Most Rated -->
+
+<div class="selection"> Most Rated </div>
+<div class="movie-slider-container" id="slider3">
+    <button class="slider-btn left-btn" onclick="slideLeft('slider3')">←</button>
+    <div class="movie-slider">
+        <div class="movie-wrapper" id="movieWrapper3">
+            {% for movie in most_rated %}
+                <div class="movie">
+                    <a href="{{ url_for('reviews', movie_id=movie['id'])  }}">
+                        <img src="https://image.tmdb.org/t/p/w500/{{ movie['poster_path'] }}" alt="{{ movie['title'] }}">
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <button class="slider-btn right-btn" onclick="slideRight('slider3')">→</button>
+</div>
+
+<!--#endregion -->
+    
+    <section>
+        <h1>Any Questions?</h1>
+    </section>
+    <script src="static/JS/HomePage.js"></script>
+</body>
+{% endblock %}

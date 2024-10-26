@@ -1,0 +1,646 @@
+/*#region Full Site */
+
+*{
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Arial', sans-serif;
+  background-color: black;
+}
+
+/*#endregion */
+
+/*#region Header */
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #0f8de0;
+
+}
+
+.search-section{
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  background-color: black;
+  position: relative;
+}
+
+.search-bar{
+  display: flex;
+  width: 90%;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.search-input{
+  flex: 1;
+  padding: 0.8rem;
+  font-size: 1rem;
+  background-color: #333;
+  color: white;
+  border: 1px solid #0f8de0;
+  border-radius: 4px;
+  transition: border-color 0.3s;
+  z-index: 10;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #4CAF50;
+}
+
+.suggestions-dropdown{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #0f8de0;
+  max-height: 200px;
+  overflow-y: auto;
+  position: absolute;
+  top: 100%;
+  background-color: #444;
+  z-index: 5;
+  width: 90%;
+  border-radius: 0 0 4px 4px;
+}
+
+.suggestions-dropdown li{
+  padding: 10px;
+  cursor: pointer;
+  color: white;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.suggestions-dropdown li:hover {
+  background-color: #555;
+}
+
+.suggestion-item {
+  display: flex;
+  align-items: center;
+}
+
+.suggestion-poster{
+  width: 40px;
+  height: 60px;
+  margin-right: 10px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.suggestion-item span{
+  font-size: 1rem;
+  color: black;
+}
+
+.logo{
+  max-width: 100%;
+  height: auto;
+  width: 5vw;
+  padding-left: 10px;
+}
+
+@font-face {
+  font-family: 'BanFont'; /* Name your font family */
+  src: url('../bebas_neue/BebasNeue-Regular.ttf'); /* Locate the .ttf file within your directory*/
+}
+
+@font-face {
+  font-family: 'KickFont'; /* Name your font family */
+  src: url('../Moderniz/MODERNIZ\ 900.otf'); /* Locate the .ttf file within your directory*/
+}
+
+.text{
+  font-size: 300%;
+  font-family:'BanFont', sans-serif;
+  padding-right: 10px;
+  color: #333;
+}
+
+.text a{
+  text-decoration: none;
+  color: #333;
+}
+
+/*#endregion */
+
+/*#region Login */
+
+.loginForm{
+  display: flex;
+  flex-direction: column;
+}
+
+.loginForm label{
+  width: 200px;
+  text-align: left;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: gray;
+}
+
+.loginForm input{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    border: 1px solid;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: whitesmoke;
+}
+
+.loginForm input:focus{
+    background-color: #fff;
+}
+
+.loginButton {
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: darkgreen ;
+    cursor: pointer;
+}
+
+.loginButton:hover {
+    background-color: green;
+}
+
+.loginSection{
+  width:500px;
+  margin:30px auto;
+  padding:20px;
+  background-color: white;
+  border-radius: 20px;
+  text-align:center;
+}
+
+.loginSection h2{
+  margin-bottom:20px;
+  font-size:30px;
+  font-weight: bold;
+  color:black;
+}
+
+/*#endregion */
+
+/*#region Review Page */
+
+/*#region Review Page Star */
+
+.star {
+  font-size: 30px;
+  color: #ccc; 
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.star:hover,.star.active {
+  color: gold;
+}
+
+/*#endregion */
+
+/*#region Review Page Styling */
+
+.reviews{
+  padding:20px;
+  background-color: black;
+}
+
+.review{
+  background-color: rgb(255, 255, 255);
+  margin-bottom:20px;
+  padding:15px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.review.reviewText{
+  padding:15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: black;
+}
+
+.reviewDetails{
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 5px 0;
+}
+
+.reviewDetails.userRating{
+  display:flex;
+  align-items: center;
+}
+
+.userRating.user{
+  font-weight: bold;
+  margin-right:10px;
+}
+
+.userRating.rating{
+  display: inline-flex;
+  align-items: center;
+  margin-right:10px;
+}
+
+.rating .star{
+  color: gold;
+  cursor: default;
+}
+
+.voting{
+  display: flex;
+  align-items: center;
+}
+
+.voting button{
+  background-color: black;
+  border:none;
+  color:white;
+  padding:5px 10px;
+  margin-right: 5px;
+  border-radius: 5px;
+}
+
+.voting button:hover{
+  background-color: lightgray;
+}
+
+/*#endregion */
+
+/*#endregion */
+
+/*#region Home Page */
+
+/*#region Home Page Style */
+
+.selection{
+  font-size: 200%;
+  font-family: 'BanFont', sans-serif;
+  margin-top: 30px;
+  padding-right: 10px;
+  text-align: center;
+  color: white;
+}
+
+/*#endregion */
+
+/*#region Movie Poster Slider */
+
+.movie-slider-container {
+  position: relative;
+  max-width: 95%;
+  margin: 0 auto;
+  overflow: hidden;
+  top: 20px;
+}
+
+.movie-slider{
+  overflow: hidden;
+  width: 100%;
+}
+
+.movie-wrapper{
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.movie{
+  width: 220px;
+  margin: 0 10px;
+  flex-shrink: 0;
+}
+
+.movie img{
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.movie img:hover{
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 4px 20px rgba(118, 118, 118, 0.3);
+}
+
+.slider-btn{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 24px;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.left-btn{
+  left: 15px;
+}
+
+.right-btn{
+  right: 10px;
+}
+
+/*#endregion */
+
+/*#endregion */
+
+/*#region Movie Page */
+
+/*#region Movie Page General Styling*/
+
+.movie-details-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 20px;
+  background-color: black;
+  color: white;
+  justify-content: flex-start;
+}
+
+.movie-poster {
+  width: 30%;
+  flex-shrink: 0;
+  background-color: black;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(62, 62, 62, 0.5);
+}
+
+.movie-poster img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.movie-info {
+  flex: 1;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  color: black;
+  overflow-wrap: break-word;
+}
+
+.movie-title {
+  font-size: 2.0rem;
+  font-family: 'BanFont', sans-serif;
+  margin-bottom: 20px;
+  color: #0f8de0;
+}
+
+.movie-details p {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.movie-details p strong {
+  color: #0f8de0;
+}
+
+.movie-details-container{
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+@media (max-width: 768px) {
+  .movie-details-container{
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .movie-poster{
+    max-width: 40%
+  }
+
+  .movie-info {
+    flex: 1;
+    padding: 15px;
+  }
+
+  .movie-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px){
+  .movie-details-container{
+    gap: 5px;
+  }
+
+  .movie-poster{
+    max-width: 35%;
+  }
+
+  .movie-info {
+    padding: 10px;
+  }
+
+  .movie-title {
+    font-size: 1.3rem;
+  }
+
+  .movie-details p {
+    font-size: 1rem;
+  }
+}
+
+/*#endregion */
+
+/*#region Movie Page Navigation Styling */
+
+.movie-navigation ul {
+  display: flex;
+  justify-content: space-around;
+  background-color: #0f8de0;
+  padding: 10px;
+  margin-top: 20px;
+  list-style: none;
+  border-radius: 10px;
+}
+
+.movie-navigation ul li {
+  padding: 10px 20px;
+  font-size: 0.7rem;
+}
+
+.movie-navigation ul li a {
+  text-decoration: none;
+  color: black;
+  font-family: 'BanFont', sans-serif;
+  transition: color 0.3s;
+}
+
+.movie-navigation ul li a:hover {
+  color: darkgoldenrod;
+}
+
+.movie-details-container, .movie-navigation {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/*#endregion */
+
+/*#endregion */
+
+/*#region Trailer */
+
+.video-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.video {
+  background-color: darkgray;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  width: 560px;
+}
+
+iframe {
+  width: 100%;
+  height: 315px;
+  border-radius: 10px;
+}
+
+/*#endregion  */
+
+/*#region Cast */
+
+.cast-section{
+  margin: 30px 0;
+  padding: 20px;
+  background-color: black;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(79, 79, 79, 0.1);
+}
+
+.cast-section h2{
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.cast-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.cast-member{
+  flex: 1 1 calc(50% - 20px);
+  display: flex;
+  align-items: center;
+  background-color: #0f8de0;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+}
+
+.cast-member img{
+  border-radius: 10px;
+  padding-right: 10px;
+}
+
+.cast-img {
+  width: 80px;
+  height: auto;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.cast-info{
+  flex: 1;
+}
+
+.cast-name{
+  font-size: 18px;
+  margin: 0 0 5px 0;
+  color: #555;
+  font-weight: bold;
+}
+
+.cast-character{
+  font-size: 14px;
+  color: #555;
+  margin: 0;
+}
+
+/*#endregion */
+
+/*#region Leave A Review */
+
+.leave-review-section {
+  width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.leave-review-section h1 {
+  text-align: center;
+  color: #333;
+}
+
+#review-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#review-form label {
+  font-weight: bold;
+  color: #555;
+}
+
+#review-form input, #review-form textarea, #review-form button {
+  padding: 10px;
+  font-size: 1rem;
+}
+
+#review-form button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+#review-form button:hover {
+  background-color: #0056b3;
+}
+
+/*#endregion */

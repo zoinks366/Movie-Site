@@ -1,0 +1,26 @@
+{%extends 'MoviePage.html'%}
+
+{%block movieBlock%}
+    <head>
+        <title> Leave A Review </title>
+    </head>
+
+    <body>
+        <section class="leave-review-section">
+            <h1>Leave a Review</h1>
+            <form id="review-form" method="POST">
+                <label for="review-text">Your Review:</label>
+                <textarea id="review-text" name="review_text" required></textarea>
+    
+                <label for="rating">Rating:</label>
+                <input type="number" id="rating" name="rating" min="1" max="10" required>
+    
+                <label for="username">Your Name:</label>
+                <input type="text" id="username" name="username" required>
+    
+                <button>Submit Review</button>
+            </form>
+        </section>
+    </body>
+    </html>
+{%endblock%}

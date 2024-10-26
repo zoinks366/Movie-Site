@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Setting the web page icon to the logo -->
+        <link rel="icon" href="{{ url_for('static', filename='Images/Logo.png') }}">
+        <!-- Linking to css file -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='CSS/FullSiteStyle.css') }}">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <!-- Linking to js file -->
+        <script src="{{ url_for('static', filename='JS/search.js') }}"></script>
+    </head>
+
+    <body>
+        <!-- Makes Logo, Title and Login giving functionalty where needed -->
+        <header class="header"> 
+            <a href="{{ url_for('homePage')}}"><img src="{{ url_for('static', filename='Images/Logo.png') }}" alt="SiteLogo" class="logo"></a>
+            <div class="text">FRAME FOCUS</div>
+            <div class="text"><a href="{{ url_for('login')}}">LOGIN</a></div>
+        </header>
+
+        <!-- Makes search bar -->
+        <section class="search-section">
+            <form class="search-bar" onsubmit="return false;">
+                <input type="text" placeholder="Search..." class="search-input" id="searchInput">
+            </form>
+            <ul class="suggestions-dropdown" id="suggestionsList" style="display: none;"></ul>
+        </section>
+        
+        <!-- sections of other html files can be moved into here
+        essential extending the html file -->
+        {% block mainBlock %}  {% endblock %}
+
+        {% block footerBlock %}  {% endblock %}
+    </body>
+</html>

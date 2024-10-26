@@ -1,0 +1,23 @@
+{%extends 'Base.html'%}
+ 
+{%block mainBlock%}
+ 
+<head>
+    <title> Login </title>
+</head>
+ 
+<section class="loginSection">
+    <h2>Login</h2>
+    <!--Creating form for login/sign up using email and password input-->
+    <form action="http://127.0.0.1:5000/save_login" class="loginForm" name="loginForm" method ="post">
+        <label for="email">Email:</label>
+        <input type="email" name="email" class="username" required>
+        <label for="password">Password:</label>
+        <input type="password" name="password" class="password" required>
+        <button type="submit" class="loginButton">Login</button>
+    </form>
+</section>
+ 
+<!-- <script src="static/JS/Login.js"></script> -->
+ 
+{%endblock%}

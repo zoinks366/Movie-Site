@@ -1,0 +1,36 @@
+{%extends 'MoviePage.html'%}
+{%block movieBlock%}
+<head>
+    <title>Reviews for {{ movie['title'] }}</title>
+</head>
+
+<section class="reviews">
+    <!-- If there are no reviews avaible it will say so -->
+    {% if reviews %}
+        <!-- Looping through each review -->
+        {% for review in reviews %}
+            <div class="review">
+                <!-- Turns JSON data recived from an API into content to be displayed -->
+                <div class="reviewText">{{ review['content'] }}</div>
+                <div class="reviewDetails">
+                    <div class="userRating">
+                        <div class="user">{{ review['author'] }}</div>
+                        <div class="rating"></div>
+                            <!-- Turning and displaying a 0-10 review into a 1-5 star rating -->
+                            {% for i in range(5) %}
+                                {% set rating = review['author_details']['rating']|default(0)|int %}
+                                <span class="star {% if i < rating %} active{% endif %}">&#9733;</span>
+                            {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="voting">
+                <button>Like</button>
+                <button>Dislike</button>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No reviews available for this movie</p>
+    {% endif %}
+</section>
+{%endblock%}

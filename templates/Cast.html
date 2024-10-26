@@ -1,0 +1,27 @@
+{%extends 'MoviePage.html'%}
+
+{%block movieBlock%}
+<head>
+    <title> Cast Page </title>
+</head>
+
+<div class="cast-section">
+    <div class="cast-list">
+        <!-- Goes through each cast memeber sent in the JSON data -->
+        {% for member in cast %}
+            <div class="cast-member">
+                <!-- Creates a profile picture of the cast member with 
+                infomation about them -->
+                <img src="https://image.tmdb.org/t/p/w200{{ member['profile_path']}}" alt="{{ member['name']}}'s profile picture">
+                <div class="cast-info">
+                    <h4 class="cast-name">{{ member['name'] }}</h4>
+                    <p class="cast-character">as {{ member['character'] }}</p>
+                </div>
+            </div>
+        {% else %}
+            <p>No cast information available</p>
+        {% endfor %}
+    </div>
+</div>
+
+{%endblock%}

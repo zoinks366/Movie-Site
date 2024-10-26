@@ -1,0 +1,44 @@
+{%extends 'Base.html'%}
+
+{%block mainBlock%}
+<!-- Using the API and JSON data you can change the title 
+depending on what movie the user is looking at -->
+<head>
+  <title>{{ movie['title'] }}</title>  
+</head>
+
+<section class="movie-details-container">
+    <div class="movie-poster">
+        <img src="https://image.tmdb.org/t/p/w500/{{ movie['poster_path']}}" alt="{{ movie['title']}} movie image">
+    </div>
+    <div class="movie-info">
+        <!-- Using the API you can recive and split/store alot of data such 
+        as what is below -->
+        <h1 class="movie-title">{{ movie['title'] }}</h1>
+        <div class="movie-details">
+            <p><strong>Overview: </strong>{{ movie['overview']}}</p>
+            <p><strong>Release Date: </strong>{{ movie['release_date'] }}</p>
+            <p><strong>Rating: </strong>{{ movie['vote_average'] }}/10</p>
+            <p><strong>Runtime: </strong>{{ movie['runtime'] }} minutes</p>
+            <p><strong>Genres: </strong>
+                {% for genre in movie['genres'] %}
+                    {{ genre['name'] }} {% if not loop.last %}, {% endif %}
+                {% endfor %}
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- A navigation bar that extends the html file and sends 
+the current movie id to the next section where it will be needed -->
+<nav class = "movie-navigation">
+    <ul>
+        <li><div class="text"><a href="{{ url_for('reviews', movie_id=movie['id']) }}">REVIEW</a></div></li>
+        <li><div class="text"><a href="{{ url_for('trailer', movie_id=movie['id']) }}">TRAILER</a></div></li>
+        <li><div class="text"><a href="{{ url_for('cast', movie_id=movie['id']) }}">CAST</a></div></li>
+        <li><div class="text"><a href="{{ url_for('leaveReview', movie_id=movie['id']) }}">LEAVE A REVIEW</a></div></li>
+    </ul>
+</nav>
+
+{% block movieBlock %}  {% endblock %}
+{%endblock%}
